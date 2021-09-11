@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- //   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<nav th:replace="layouts :: navbar"></nav>-->
+<div align=" center">
+    <br>
+    <form class="myForm" method="get"  action="/valid">
+        <p>
+            <label>Username  <input type="text" name="user_email" > </label>
+            <br> <br>
+            <label>Password <input type="password" name="user_pwd" > </label>
+            <br> <br>
+            <i style="color:red; " ><b> INCORRECT USERNAME OR PASSWORD</b></i><br><br>
+            <input type="submit" value="Login">
+        </p>
+        <p><i><a href="http://localhost:8090/forgot">Forgot Password</a>  <a href="http://localhost:8090/change">Change Password</a></i></p>
+    </form>
+</div>
+</body>
+</html>

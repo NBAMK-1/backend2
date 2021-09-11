@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<!--<style>-->
+<!--&lt;!&ndash;    body {font-family: Arial, Helvetica, sans-serif;}&ndash;&gt;-->
+<!--&lt;!&ndash;    * {box-sizing: border-box;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Set a style for all buttons */&ndash;&gt;-->
+<!--&lt;!&ndash;    button {&ndash;&gt;-->
+<!--&lt;!&ndash;        background-color: #04AA6D;&ndash;&gt;-->
+<!--&lt;!&ndash;        color: white;&ndash;&gt;-->
+<!--&lt;!&ndash;        padding: 14px 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;        margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;        border: none;&ndash;&gt;-->
+<!--&lt;!&ndash;        cursor: pointer;&ndash;&gt;-->
+<!--&lt;!&ndash;        width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;        opacity: 0.9;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    button:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;        opacity:1;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Float cancel and delete buttons and add an equal width */&ndash;&gt;-->
+<!--&lt;!&ndash;    .cancelbtn, .deletebtn {&ndash;&gt;-->
+<!--&lt;!&ndash;        float: left;&ndash;&gt;-->
+<!--&lt;!&ndash;        width: 50%;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Add a color to the cancel button */&ndash;&gt;-->
+<!--&lt;!&ndash;    .cancelbtn {&ndash;&gt;-->
+<!--&lt;!&ndash;        background-color: #ccc;&ndash;&gt;-->
+<!--&lt;!&ndash;        color: black;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Add a color to the delete button */&ndash;&gt;-->
+<!--&lt;!&ndash;    .deletebtn {&ndash;&gt;-->
+<!--&lt;!&ndash;        background-color: #f44336;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Add padding and center-align text to the container */&ndash;&gt;-->
+<!--&lt;!&ndash;    .container {&ndash;&gt;-->
+<!--&lt;!&ndash;        padding: 16px;&ndash;&gt;-->
+<!--&lt;!&ndash;        text-align: center;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* The Modal (background) */&ndash;&gt;-->
+<!--&lt;!&ndash;    .modal {&ndash;&gt;-->
+<!--&lt;!&ndash;        display: none; /* Hidden by default */&ndash;&gt;-->
+<!--&lt;!&ndash;        position: fixed; /* Stay in place */&ndash;&gt;-->
+<!--&lt;!&ndash;        z-index: 1; /* Sit on top */&ndash;&gt;-->
+<!--&lt;!&ndash;        left: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;        top: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;        width: 100%; /* Full width */&ndash;&gt;-->
+<!--&lt;!&ndash;        height: 100%; /* Full height */&ndash;&gt;-->
+<!--&lt;!&ndash;        overflow: auto; /* Enable scroll if needed */&ndash;&gt;-->
+<!--&lt;!&ndash;        background-color: #474e5d;&ndash;&gt;-->
+<!--&lt;!&ndash;        padding-top: 50px;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Modal Content/Box */&ndash;&gt;-->
+<!--&lt;!&ndash;    .modal-content {&ndash;&gt;-->
+<!--&lt;!&ndash;        background-color: #fefefe;&ndash;&gt;-->
+<!--&lt;!&ndash;        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */&ndash;&gt;-->
+<!--&lt;!&ndash;        border: 1px solid #888;&ndash;&gt;-->
+<!--&lt;!&ndash;        width: 80%; /* Could be more or less, depending on screen size */&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Style the horizontal ruler */&ndash;&gt;-->
+<!--&lt;!&ndash;    hr {&ndash;&gt;-->
+<!--&lt;!&ndash;        border: 1px solid #f1f1f1;&ndash;&gt;-->
+<!--&lt;!&ndash;        margin-bottom: 25px;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* The Modal Close Button (x) */&ndash;&gt;-->
+<!--&lt;!&ndash;    .close {&ndash;&gt;-->
+<!--&lt;!&ndash;        position: absolute;&ndash;&gt;-->
+<!--&lt;!&ndash;        right: 35px;&ndash;&gt;-->
+<!--&lt;!&ndash;        top: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;        font-size: 40px;&ndash;&gt;-->
+<!--&lt;!&ndash;        font-weight: bold;&ndash;&gt;-->
+<!--&lt;!&ndash;        color: #f1f1f1;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    .close:hover,&ndash;&gt;-->
+<!--&lt;!&ndash;    .close:focus {&ndash;&gt;-->
+<!--&lt;!&ndash;        color: #f44336;&ndash;&gt;-->
+<!--&lt;!&ndash;        cursor: pointer;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Clear floats */&ndash;&gt;-->
+<!--&lt;!&ndash;    .clearfix::after {&ndash;&gt;-->
+<!--&lt;!&ndash;        content: "";&ndash;&gt;-->
+<!--&lt;!&ndash;        clear: both;&ndash;&gt;-->
+<!--&lt;!&ndash;        display: table;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    /* Change styles for cancel button and delete button on extra small screens */&ndash;&gt;-->
+<!--&lt;!&ndash;    @media screen and (max-width: 300px) {&ndash;&gt;-->
+<!--&lt;!&ndash;        .cancelbtn, .deletebtn {&ndash;&gt;-->
+<!--&lt;!&ndash;            width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+<body>
+
+<!--<h2>Delete Modal</h2>-->
+
+<!--<button onclick="document.getElementById('id01').style.display='block'">Open Modal</button>-->
+
+<!--<div id="id01" class="modal">-->
+<!--    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>-->
+<!--    <form class="modal-content" action="/action_page.php">-->
+<!--        <div class="container">-->
+<!--            <h1>Delete Account</h1>-->
+<!--            <p>Are you sure you want to delete your account?</p>-->
+
+<!--            <div class="clearfix">-->
+<!--                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>-->
+<!--                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    // Get the modal-->
+<!--    var modal = document.getElementById('id01');-->
+
+<!--    // When the user clicks anywhere outside of the modal, close it-->
+<!--    window.onclick = function(event) {-->
+<!--        if (event.target == modal) {-->
+<!--            modal.style.display = "none";-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+
+</body>
+</html>

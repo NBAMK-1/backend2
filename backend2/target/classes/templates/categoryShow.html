@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Category</title>
+    <style>
+        table {
+            width: 100%;
+            padding: 8px;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        * {box-sizing: border-box}
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            /*   width: 100%; */
+            opacity: 0.9;
+        }
+
+
+        /* Float cancel and delete buttons and add an equal width */
+        .cancelbtn, .deletebtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add a color to the cancel button */
+        .cancelbtn {
+            background-color: #ccc;
+            color: black;
+        }
+
+        /* Add a color to the delete button */
+        .deletebtn {
+            background-color: #f44336;
+        }
+
+        /* Add padding and center-align text to the container */
+        .container {
+            padding: 16px;
+            text-align: center;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: #474e5d;
+            padding-top: 50px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* /* Style the horizontal ruler */
+        /* hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        } */
+        /*  */
+        /* The Modal Close Button (x) */
+        .close {
+            position: absolute;
+            right: 35px;
+            top: 15px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #f1f1f1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and delete button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .deletebtn {
+                /*     width: 100%; */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+<br>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6"><h2>CURRENT CATEGORY TABLE</h2></div>
+    <div class="col-md-5"></div>
+        <div class="col-md-1">
+            <form action="/category"  >
+
+                <button style="justify-items: end;">
+                    ADD TITLE
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<div>
+
+    <table >
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each= "acategory :${categoryList}">
+            <td th:text="${acategory.cid}"/>
+            <td th:text="${acategory.ctitle}"/>
+            <td><a th:href="@{/edit/{id}(id=${acategory.cid})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${acategory.cid})}">DELETE</a>
+                <button onclick="document.getElementById('id01').style.display='block'">DELETE</button>
+<!--                <a data-toggle="modal" data-target="#modal-warning" th:attr="data-target='#modal-warning'+${acategory.cid }">Delete</a>-->
+<!--                <div class="modal modal-warning fade in" th:id="modal-warning+${acategory.cid }" >-->
+<!--                    <div class="modal-dialog">-->
+<!--                        <div class="modal-content">-->
+<!--                            <div class="modal-header">-->
+<!--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                    <span aria-hidden="true">×</span></button>-->
+<!--                                <h5 class="modal-title">Delete Category</h5>-->
+<!--                            </div>-->
+<!--                            <div class="modal-body">-->
+<!--                                <h3>Are you sure want to delete this Category?</h3>-->
+<!--                            </div>-->
+<!--                            <div class="modal-footer">-->
+<!--                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>-->
+<!--                                <a type="button" class="btn btn-outline" th:href="@{/delete/{id}(id=${acategory.cid})}"><i class="fa fa-check"></i>&nbsp;Yes</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div id="id01" class="modal">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form class="modal-content" action="/delete/id">
+                        <div class="container">
+                            <h1>Delete Category</h1>
+                            <p>Are you sure you want to delete your Category?</p>
+
+                            <div class="clearfix">
+                                <button type="button" class="cancelbtn">Cancel</button>
+                                <button type="button" class="deletebtn">Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </td>
+           </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

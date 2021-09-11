@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- //   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <meta charset="UTF-8">
+    <title>MEDIA SHOW</title>
+    <style>
+    table {
+        width: 100%;
+        padding: 8px;
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+</style>
+</head>
+
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+<br>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6"><h2>CURRENT MEDIA TABLE</h2></div>
+        <div class="col-md-5"></div>
+        <div class="col-md-1">
+            <form action="/addMedia"  >
+
+                <button style="justify-items: end;">
+                    ADD MEDIA
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<div>
+
+    <table >
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>URL</th>
+            <th>CATEGORY</th>
+<!--            <th>CATEGORY MEDIA</th>-->
+            <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each= "aMedia :${mediaList}">
+            <td th:text="${aMedia.mid}"/>
+            <td th:text="${aMedia.media_title}"/>
+            <td th:text="${aMedia.media_url}"/>
+            <td th:text="${aMedia.category}"/>
+<!--            <td th:text="${aMedia.categoryMedia}"/>-->
+            <td><a th:href="@{/edit2/{id2}(id2=${aMedia.mid})}">Edit</a>
+                <a th:href="@{/delete2/{id2}(id2=${aMedia.mid})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

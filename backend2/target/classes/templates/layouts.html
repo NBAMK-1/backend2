@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<!-- //   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<nav  th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Backend2</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost:8090/homePage">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link category" href="http://localhost:8090/categoryShow1">Category</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link article" href="http://localhost:8090/articleShow1">Article</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link media" href="http://localhost:8090/mediaShow1">Media</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--<div class="container">-->
+<!--    <div class="row mt-5">-->
+<!--        <div class="col">-->
+<!--            &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
+<!--                Launch simple modal-->
+<!--            </button>-->
+
+<!--&lt;!&ndash;            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">&ndash;&gt;-->
+<!--&lt;!&ndash;                Dynamic modal 1&ndash;&gt;-->
+<!--&lt;!&ndash;            </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">&ndash;&gt;-->
+<!--&lt;!&ndash;                Dynamic modal 2&ndash;&gt;-->
+<!--&lt;!&ndash;            </button>&ndash;&gt;-->
+
+<!--            <th:block th:replace="_modals :: modal('exampleModal')">modal</th:block>-->
+<!--&lt;!&ndash;            <th:block th:replace="_modals :: modal('exampleModal1')">modal</th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th:block th:replace="_modals :: modal('exampleModal2')">modal</th:block>&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--<script th:src="@{/webjars/jquery/jquery.min.js}"></script>-->
+<!--<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>-->
+<!--<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    $('#exampleModal1').on('show.bs.modal', function () {&ndash;&gt;-->
+<!--&lt;!&ndash;        $.get("/modals/modal1", function (data) {&ndash;&gt;-->
+<!--&lt;!&ndash;            $('#exampleModal1').find('.modal-body').html(data);&ndash;&gt;-->
+<!--&lt;!&ndash;        })&ndash;&gt;-->
+<!--&lt;!&ndash;    });&ndash;&gt;-->
+
+<!--&lt;!&ndash;    $('#exampleModal2').on('show.bs.modal', function () {&ndash;&gt;-->
+<!--&lt;!&ndash;        var name = prompt("Please enter your name", "John Doe");&ndash;&gt;-->
+<!--&lt;!&ndash;        $.get("/modals/modal2?name=" + name, function (data) {&ndash;&gt;-->
+<!--&lt;!&ndash;            $('#exampleModal2').find('.modal-body').html(data);&ndash;&gt;-->
+<!--&lt;!&ndash;        })&ndash;&gt;-->
+<!--&lt;!&ndash;    })&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--<div th:fragment="modal(id)" class="modal fade" th:id="${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,-->
+<!--                egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+</html>
